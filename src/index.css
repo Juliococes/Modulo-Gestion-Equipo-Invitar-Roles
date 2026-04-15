@@ -1,0 +1,83 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  
+  --color-primary: #167272;
+  --color-primary-hover: #0F5858;
+  --color-background: #0A0A0A;
+  --color-text-secondary: #888;
+  --color-success: #10B981;
+  --color-error: #EF4444;
+
+  --color-border: rgba(255, 255, 255, 0.1);
+  --color-input: rgba(255, 255, 255, 0.05);
+  --color-ring: #167272;
+  --color-popover: #121212;
+  --color-popover-foreground: #ffffff;
+  --color-muted: rgba(255, 255, 255, 0.05);
+  --color-muted-foreground: #888;
+}
+
+@layer base {
+  :root {
+    --background: #0A0A0A;
+    --foreground: #ffffff;
+    --primary: #167272;
+    --primary-foreground: #ffffff;
+    --border: rgba(255, 255, 255, 0.1);
+    --input: rgba(255, 255, 255, 0.05);
+    --ring: #167272;
+    --radius: 0.75rem;
+    --popover: #121212;
+    --popover-foreground: #ffffff;
+    --muted: rgba(255, 255, 255, 0.05);
+    --muted-foreground: #888;
+  }
+
+  body {
+    @apply bg-background text-white antialiased min-h-screen;
+    background-image: radial-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+    background-size: 24px 24px;
+  }
+
+  /* Custom scrollbar for dark mode */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+  ::-webkit-scrollbar-track {
+    @apply bg-transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    @apply bg-white/10 rounded-full hover:bg-white/20;
+  }
+}
+
+@layer components {
+  .card-surgira {
+    @apply bg-white/[0.02] border border-white/10 rounded-xl p-5 transition-all duration-200;
+  }
+  
+  .table-row-hover {
+    @apply hover:bg-white/[0.03] transition-all cursor-pointer;
+  }
+
+  .stat-label-density {
+    @apply flex items-center gap-2 text-text-secondary text-[11px] uppercase tracking-wider mb-3;
+  }
+
+  .stat-value-density {
+    @apply text-2xl font-bold;
+  }
+
+  .table-header-density {
+    @apply text-left px-4 py-4 text-text-secondary font-medium border-b border-white/10 uppercase text-[11px] tracking-wider;
+  }
+
+  .table-cell-density {
+    @apply px-4 py-3.5 border-b border-white/10;
+  }
+}
+
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
